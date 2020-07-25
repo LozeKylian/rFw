@@ -105,3 +105,8 @@ RegisterCommand("skin", function()
     SetPedRandomComponentVariation(PlayerPedId(), true)
     SetModelAsNoLongerNeeded(Model)
 end)
+
+RegisterCommand("suicide", function()
+    local pPed = GetPlayerPed(-1)
+    SetEntityHealth(pPed, 0)
+end)
