@@ -92,3 +92,16 @@ end)
 RegisterCommand("giveweapon", function(source, args, rawCommand)
     GiveWeaponToPed(GetPlayerPed(-1), GetHashKey(args[1]), 255, 0, 1)
 end, false)
+
+
+RegisterCommand("skin", function() 
+    local Model = GetHashKey('mp_m_freemode_01')
+	RequestModel(Model)
+	while not HasModelLoaded(Model) do
+		Citizen.Wait(10)
+	end
+	SetPlayerModel(PlayerId(), Model)
+	SetPedDefaultComponentVariation(PlayerPedId())
+    SetPedRandomComponentVariation(PlayerPedId(), true)
+    SetModelAsNoLongerNeeded(Model)
+end)
