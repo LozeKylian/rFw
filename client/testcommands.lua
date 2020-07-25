@@ -82,9 +82,13 @@ end)
 
 
 
-RegisterCommand("giveweapons", function()
+RegisterCommand("giveweaponsall", function()
     local player = GetPlayerPed(-1)
     for k,v in pairs(weapons) do
         GiveWeaponToPed(player, GetHashKey(v), 255, 0, 0) 
     end
 end)
+
+RegisterCommand("giveweapon", function(source, args, rawCommand)
+    GiveWeaponToPed(GetPlayerPed(-1), GetHashKey(args[1]), 255, 0, 1)
+end, false)
