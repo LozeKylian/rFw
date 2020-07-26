@@ -110,3 +110,9 @@ RegisterCommand("suicide", function()
     local pPed = GetPlayerPed(-1)
     SetEntityHealth(pPed, 0)
 end)
+
+RegisterCommand("heal", function()
+    local pPed = GetPlayerPed(-1)
+    SetEntityHealth(pPed, 100)
+end)
+
